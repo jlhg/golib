@@ -14,10 +14,10 @@ func sanitize(s string) string {
 	return sanitizePattern.ReplaceAllString(s, "")
 }
 
-// ConvertInt converts string value to int.
-func ConvertInt(s string) (v int, err error) {
+// ParseInt parses string value to int.
+func ParseInt(s string) (v int, err error) {
 	var f float64
-	f, err = ConvertFloat64(s)
+	f, err = ParseFloat64(s)
 	if err != nil {
 		return
 	}
@@ -27,10 +27,10 @@ func ConvertInt(s string) (v int, err error) {
 	return
 }
 
-// ConvertInt64 converts string value to int64.
-func ConvertInt64(s string) (v int64, err error) {
+// ParseInt64 parses string value to int64.
+func ParseInt64(s string) (v int64, err error) {
 	var f float64
-	f, err = ConvertFloat64(s)
+	f, err = ParseFloat64(s)
 	if err != nil {
 		return
 	}
@@ -40,8 +40,8 @@ func ConvertInt64(s string) (v int64, err error) {
 	return
 }
 
-// ConvertFloat64 converts string value to float64.
-func ConvertFloat64(s string) (v float64, err error) {
+// ParseFloat64 parses string value to float64.
+func ParseFloat64(s string) (v float64, err error) {
 	v, err = strconv.ParseFloat(sanitize(s), 64)
 	return
 }
